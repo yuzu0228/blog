@@ -1,0 +1,1378 @@
+/*
+Theme Name: Yuzu Blog
+Theme URI: https://yuzu-blog.ever.jp
+Description: Yuzu Blogのテーマ
+Version: 1.0
+Author: Yuzu
+*/
+
+html * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box; 
+}
+
+body {
+    background-color: rgb(225, 247, 250);
+    margin: 0;
+    font-family:'Quicksand', Meiryo,  sans-serif;
+    position: relative;
+    min-height: 100vh;
+    /*background-image: url('image/blue-snow.png');*/
+    background-repeat: repeat;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.screen-reader-text {
+	display: none;
+}
+
+main {
+    margin: 0 20px;
+}
+
+figure {
+    margin: 0;
+}
+
+.all-contents-without-header {
+    padding-bottom: 120px;
+}
+
+/*================================================
+                header　タイトルとロゴ
+====================================================*/
+header {
+    display: flex; 
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+header .blog-top-title-container {
+    position: relative;
+}
+
+header .blog-top-title-container a {
+    transition: 0.3s;
+}
+
+header .blog-top-title-container a:after {
+    content: "";
+    position: absolute;
+    bottom: 35px;
+    left: 0;
+    border-top: 3px solid #000;
+    width: 100%;
+}
+
+header .blog-top-title-container a.header-narrow:after {
+    border-top: 1.5px solid #000;
+    bottom: 9.5px;
+}
+
+header .blog-top-title-container a:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+
+
+header .blog-top-title {
+    font-family: 'Quicksand', sans-serif;
+    display: inline-block;
+    font-size: 40px;
+}
+
+header .top-title-logo {
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    padding: 10px 0 0 0;
+}
+
+@media (max-width: 540px ) {
+    
+}
+
+/*============================================
+ 			gloval-navと検索ボックス
+ ================================================*/
+
+ header ul.main-menu {
+	display: flex;
+    justify-content: center;
+    margin: 55px 0 0 50px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+}
+
+header ul.main-menu li {
+	margin: 0 15px;
+}
+
+header ul.main-menu li a {
+    position: relative;
+}
+
+header ul.main-menu li a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #000;
+    width: 0%;
+    transition: 0.3s;
+}
+
+header ul.main-menu li a:hover:after {
+    width: 100%;
+    transition: 0.3s;
+}
+
+header .header-search {
+    display: block;
+}
+
+header .header-search-container {
+    margin: 50px 50px 0 auto;
+}
+
+header .header-search input[type="text"] {
+    border: none;
+    background-color: transparent;/*rgb(252, 248, 248)*/
+    border-bottom: 1px solid #000;
+}
+
+header .header-search input::placeholder {
+    padding-left: 5px;
+}
+
+header .header-search input[type="text"]:focus {
+    border: none;
+    outline: none;
+}
+
+header .header-search button[type="submit"] {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    transition: 0.3s;
+}
+
+header .header-search button[type="submit"]:focus {
+    outline: none;
+}
+
+header .header-search button[type="submit"]:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+header .header-search button[type="submit"] i {
+    color: #7F7FFF;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+header .main-nav-under-540px {
+    display: none;
+}
+
+header .fa-bars {
+    display: none;
+}
+
+header .main-nav-under-540px {
+    display: none;
+}
+
+/*=====================================================
+sticky header の設定
+==========================================================*/
+header.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,0.8);
+    vertical-align: middle;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,.3);
+    height: 50px;
+    z-index: 9999;
+    transition: all 0.3s;
+}
+
+@media (min-width: 770px) {
+    header .menu-menu1-container.sticky, header .header-search.sticky {
+        transform: translateY(-35px);
+    }
+
+    
+}
+
+/*=============================================
+headerの検索フォームをレスポンシブ化
+===================================================*/
+
+.responsive-search-btn {
+    display: none;
+}
+
+.responsive-header-search {
+    display: none;
+}
+
+
+
+.responsive-search-btn .search-btn {
+    font-size: 20px;
+}
+
+@media (max-width: 840px) {
+    .header-search-container {
+        display: none;
+    }
+
+    .responsive-search-btn {
+        display: block;
+        position: relative;
+        margin: 0 0 0 10px;
+    }
+
+    
+
+    .responsive-search-btn .search-btn.sticky {
+        transform: translateY(15px);
+    }
+
+    
+
+    .responsive-search-btn input[type="text"] {
+        border: 1px solid black;
+        background-color: transparent;
+        padding:3px;
+    }
+    
+    .responsive-search-btn button[type="submit"] {
+        transform: translate(145px, -23px);
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        transition: 0.3s;
+    }
+
+    .responsive-search-btn button[type="submit"]:hover {
+        color: #7F7FFF;
+        transition: 0.3s;
+    }
+
+}
+
+@media screen and ( min-width: 770px ) and ( max-width: 840px ) {
+    .responsive-search-btn .search-btn {
+        transform: translateY(57px);
+    }
+}
+
+/*==============================================-
+770px以下のヘッダー直下のサイトロゴ メディアクエリは下に記入
+==================================================*/
+
+
+.all-contents-without-header .blog-top-title-container.under-770px {
+    margin: 0 auto;
+    text-align: center;
+    display: none;
+    width: 265px;
+}
+
+.all-contents-without-header .blog-top-title-container.under-770px {
+    position: relative;
+}
+
+.all-contents-without-header .blog-top-title-container.under-770px a {
+    transition: 0.3s;
+}
+
+.all-contents-without-header .blog-top-title-container.under-770px a:after {
+    content: "";
+    position: absolute;
+    bottom: 35px;
+    left: 0;
+    border-top: 3px solid #000;
+    width: 100%;
+}
+
+.all-contents-without-header .blog-top-title-container.under-770px a.header-narrow:after {
+    border-top: 1.5px solid #000;
+    bottom: 9.5px;
+}
+
+.all-contents-without-header .blog-top-title-container.under-770px a:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.all-contents-without-header .blog-top-title-container.under-770px .blog-top-title {
+    font-family: 'Quicksand', sans-serif;
+    display: inline-block;
+    font-size: 40px;
+}
+
+.all-contents-without-header .blog-top-title-container.under-770px .top-title-logo {
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    padding: 10px 0 0 0;
+}
+
+@media (max-width: 540px ) {
+    .all-contents-without-header .blog-top-title-container.under-770px .top-title-logo {
+        display: none;
+    }
+
+    .all-contents-without-header .blog-top-title-container.under-770px a:after {
+        width: 0;
+    } 
+
+    .all-contents-without-header .blog-top-title-container.under-770px h1 {
+        color: #fff;
+        font-size: 12em;
+        font-weight: bold;
+        font-family: Helvetica;
+        text-shadow: 
+        0 1px 0 #ccc, 
+        0 2px 0 #c9c9c9, 
+        0 3px 0 #bbb, 
+        0 4px 0 #b9b9b9, 
+        0 5px 0 #aaa, 
+        0 6px 1px rgba(0,0,0,.1), 
+        0 0 5px rgba(0,0,0,.1), 
+        0 1px 3px rgba(0,0,0,.3), 
+        0 3px 5px rgba(0,0,0,.2), 
+        0 5px 10px rgba(0,0,0,.25), 
+        0 10px 10px rgba(0,0,0,.2), 
+        0 20px 20px rgba(0,0,0,.15);
+    }
+
+}
+
+/*============================================
+breadcrumb
+=================================================*/
+.breadcrumb {
+    margin-left: 20px;
+}
+
+.breadcrumb a {
+    transition: 0.3s;
+}
+
+.breadcrumb a:hover {
+    transition: 0.3s;
+    color: #7F7FFF;
+}
+
+/*=========================================================
+ single.php, archive.php, index.phpでメインコンテンツとサイドバーで2カラムにする
+================================================================*/
+.main-container {
+	display: flex;
+    flex-wrap: wrap;
+}
+
+.main-contents-in-single-page, /*for single.php*/
+.posts-container-with-title, /*for archive.php*/
+.index-main-container .posts-container /*for index.php*/ {
+    width: 68%;
+}
+
+.sidemenu-container {
+    width: 28%;
+    margin-left: 4%;
+}
+
+/*================================================
+ 			posts-container(excerpt.php)
+====================================================*/
+.posts-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.posts-container article {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.posts-container article .post-anchor {
+    display: block;
+    transition: 0.3s;
+    padding-bottom: 15px;
+    border-radius: 8px;
+}
+
+@media(min-width: 1000px) {
+    .posts-container article .post-anchor {
+        height: 550px;
+    }
+}
+
+.posts-container article figure {
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.posts-container article img.wp-post-image {
+    transition: 0.4s;
+    object-fit: contain;
+    height: 250px;
+}
+
+.posts-container article .excerpt-img-container {
+    overflow: hidden;
+}
+
+.posts-container article .post-anchor:hover {
+    box-shadow: 6px 12px 10px -6px rgba(0,0,0,.7);
+    transform: translateY(-5px);
+    transition: 0.3s;
+    background-color: rgba(255,255,255,.4);
+}
+
+.posts-container article .post-anchor{
+    background-color: rgba(255,255,255,.4);
+    border: 1px solid #000;
+}
+
+
+.posts-container article:nth-child(odd) {
+    margin-right: 2%;
+}
+
+.posts-container article .excerpt-title {
+    margin: 10px 10px 15px 10px;
+    text-align: center;
+    font-weight: 500;
+    line-height: 36px;
+    font-size: 22px;
+}
+
+.posts-container article .excerpt-content {
+    margin: 10px;
+}
+
+.posts-container article .excerpt-content p {
+    margin: 0;
+}
+
+.posts-container article .excerpt-footer-link-container {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.posts-container article .excerpt-footer-link-container div:nth-child(1) {
+    margin-bottom: 5px;
+}
+
+.posts-container article .excerpt-footer-link {
+    background-color: #999;
+    border-radius: 8px;
+    display: inline-block;
+    padding: 1px 7px;
+}
+
+.posts-container article .excerpt-footer-link a {
+    color: #fff;
+}
+
+/*================================================
+            pagenation
+====================================================*/
+nav.pagination {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+nav.pagination .page-numbers {
+    margin: 0 10px;
+    padding: 5px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+nav.pagination .page-numbers.current {
+    border-bottom: 2px solid #7F7FFF;
+}
+
+nav.pagination a.page-numbers:hover {
+    color: #7F7FFF;
+    transition: 0.3s;
+}
+
+/*==============================================
+    sidemenu
+==================================================*/
+.sidemenu-container {
+    text-align: center;
+}
+
+.sidemenu-container .sidemenu-part {
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 0 10px 10px 10px;
+    background-color: rgba(255,255,255,.4);
+}
+
+.sidemenu-container .sidemenu-part li {
+    margin-bottom: 10px;
+}
+
+.sidemenu-container .sidemenu-part li a {
+    transition: 0.3s;
+}
+
+.sidemenu-container .sidemenu-part .side-menu-title {
+    font-size: 26px;
+}
+/*
+.sidemenu-container .sidemenu-for-tablet-container:nth-child(1) .sidemenu-part:nth-child(1) .side-menu-title {
+    border-bottom: 1px solid black;
+    color: black;
+    font-weight: 500;
+}*/
+
+.sidemenu-container .sidemenu-for-tablet-container .sidemenu-part .side-menu-title {
+    /*border-bottom: 1px solid #7F7FFF;*/
+    color: #7F7FFF;
+    font-weight: 500;
+}
+
+.sidemenu-container .sidemenu-part:nth-child(1) li {
+    list-style-type: none;
+}
+
+.sidemenu-container .sidemenu-part:nth-child(1) li a:hover {
+    color: #7F7FFF;
+    transition: 0.3s;
+}
+
+.sidemenu-container .sidemenu-part:nth-child(1) li a:hover .post-count {
+    color: white;
+    background-color: #7F7FFF;
+    transition: 0.3s;
+}
+
+.sidemenu-container .sidemenu-part:nth-child(2) li a:hover .post-count {
+    color: white;
+    background-color: #7F7FFF;
+    transition: 0.3s;
+}
+
+.sidemenu-container .sidemenu-part:nth-child(2) li a:hover {
+    color: #7F7FFF;
+    transition: 0.3s;
+}
+
+/*
+.sidemenu-container .sidemenu-for-tablet-container:nth-child(1) .sidemenu-part:nth-child(2) .side-menu-title {
+    border-bottom: 3px solid #FF7FFF;
+    color: #FF7FFF;
+    font-weight: 500;
+}
+
+.sidemenu-container .sidemenu-for-tablet-container:nth-child(2) .sidemenu-part:nth-child(1) .side-menu-title {
+    border-bottom: 3px solid #7FFF7F;
+    color: #7FFF7F;
+    font-weight: 500;
+}
+
+.sidemenu-container .sidemenu-for-tablet-container:nth-child(2) .sidemenu-part:nth-child(2) .side-menu-title {
+    border-bottom: 3px solid #FFBF7F;
+    color: #FFBF7F;
+    font-weight: 500;
+}*/
+
+.sidemenu-container .sidemenu-part:nth-child(1) li .post-count {
+    border: 1px solid #7F7FFF;
+    color: #7F7FFF;
+    padding: 0 5px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.sidemenu-container .sidemenu-part:nth-child(2) li .post-count {
+    border: 1px solid #7F7FFF;
+    color: #7F7FFF;
+    padding: 0 5px;
+    border-radius: 10px;
+    margin-left: 5px;
+    transition: 0.3s;
+}
+
+.archive-lists {
+    margin: 0 0 40px 0;
+}
+
+.term-lists {
+    margin: 0 0 40px 0;
+}
+
+.recent-posts {
+    margin: 0 0 40px 0;
+}
+
+.recent-posts ul {
+    text-align: left;
+}
+
+.recent-posts figure.recent-post-img {
+    border: 2px solid #7F7FFF;
+    width: 80px;
+    height: 80px;
+}
+
+.recent-posts ul li img {
+    
+    transition: 0.3s;
+}
+
+.recent-posts ul li a {
+    display: table;
+    transition: 0.3s;
+}
+
+.recent-posts ul li a:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.recent-posts ul li a:hover img {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.recent-posts ul li .recent-post-text {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.recent-posts ul li .recent-post-title {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.recent-posts ul li .recent-post-date {
+    display: block;
+    margin-left: 5px;
+}
+
+.recent-posts ul li figure {
+    overflow: hidden;
+}
+
+
+.profile img {
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.profile a.img-anchor:hover img {
+    transition: 0.3s;
+    opacity: 0.6;
+}
+
+.profile .profile-text {
+    font-size: 15px;
+}
+
+.profile .profile-text a.profile-more {
+    color: #7F7FFF;
+    transition: 0.3s;
+    border: 1px solid #7F7FFF;
+    padding: 5px;
+    border-radius: 15.5px;
+    font-weight: 500;
+}
+
+.profile .profile-text a.profile-more:hover {
+    background-color: #7F7FFF;
+    color: white;
+    transition: 0.3s;
+}
+
+.profile .profile-text a.twitter {
+    color: #7F7FFF;
+    transition: 0.3s;
+}
+
+.profile .profile-text a.twitter:hover {
+    color: blue;
+    transition: 0.3s;
+}
+
+
+/*=====================================
+archive
+==============================================*/
+.archive-title-container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.archive-title {
+    text-align: center;
+    position: relative;
+    font-weight: 500;
+    padding: 0.25em 1em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+h1.archive-title:before, h1.archive-title:after {
+    content: '';
+    position: absolute;
+    top: -7px;
+    width: 2px;
+    height: -webkit-calc(100% + 14px);
+    height: calc(100% + 14px);
+    background-color: black;
+}
+h1.archive-title:before {
+    left: 7px;
+}
+h1.archive-title:after {
+    right: 7px;
+}
+
+/*============================================
+        single.php 投稿ページ
+================================================*/
+.single-main-container .main-contents-in-single-page {
+    background-color: rgba(255,255,255,.8);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+@media ( min-width: 770px ) {
+    .single-main-container {
+        margin-bottom: 20px;
+    }
+
+}
+
+.single-post-title-container .single-post-title {
+    margin: 0px auto;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.single-post-title-container span {
+    margin-right: 10px;
+}
+
+.single-post-title-container i {
+    margin-right: 5px;
+}
+
+.single-post-title-container i.fa-redo {
+    margin-left: 10px
+}
+
+.single-main-container .single-post-time-cat-tag-container a {
+    transition: 0.3s;
+}
+
+.single-main-container .single-post-time-cat-tag-container a:hover {
+    transition: 0.3s;
+    color: #7F7FFF;
+}
+
+.single-main-container .same-cat-articles-h2 {
+    color: #FF7F7F;
+    border-bottom: 1px solid #FF7F7F;
+    font-weight: 500;
+}
+
+.single-main-container .same-cat-articles-container figure.same-cat-articles-img {
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+}
+
+.single-main-container .same-cat-articles-container a.post img {
+    transition: 0.3s;
+    border: 2px solid #FF7F7F;
+}
+
+.single-main-container .same-cat-articles-container a.post {
+    display: table;
+    margin: 10px 0;
+    transition: 0.3s;
+}
+
+@media (min-width: 700px ) {
+    .single-main-container .same-cat-articles-container-without-title {
+        display: flex;
+    }
+
+    .single-main-container .same-cat-articles-container a.post {
+        width: 50%;
+    }
+
+}
+
+.single-main-container .same-cat-articles-container a.post:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.single-main-container .same-cat-articles-container a.post:hover img {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.single-main-container .same-cat-articles-container .same-cat-articles-text {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.single-main-container .same-cat-articles-container .same-cat-articles-text p {
+    margin: 0 0 0 5px;
+}
+
+.single-main-container .nav-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.single-main-container .nav-links .nav-previous,
+.single-main-container .nav-links .nav-next {
+    position: relative;
+}
+
+.single-main-container .nav-links .nav-previous {
+    margin-left: 10px;
+}
+
+.single-main-container .nav-links .nav-next {
+    margin-right: 10px;
+}
+
+.single-main-container .nav-links .nav-previous i {
+    position: absolute;
+    top: 2px;
+    left: -16px;
+    transition: 0.3s;
+}
+
+.single-main-container .nav-links .nav-next i {
+    position: absolute;
+    top: 2px;
+    right: -16px;
+    transition: 0.3s;
+}
+
+.single-main-container .nav-links .nav-previous a:hover i {
+    left: -20px;
+    transition: 0.3s;
+}
+
+.single-main-container .nav-links .nav-next a:hover i {
+    right: -20px;
+    transition: 0.3s;
+}
+
+.single-main-container article figure.post-thumbnail {
+    margin: 0px auto;
+    text-align: center;
+}
+
+.single-main-container article figure.post-thumbnail img {
+    max-height: 450px;
+    object-fit: contain;
+    margin: 20px auto;
+    text-align: center;
+}
+
+@media (max-width: 540px ) {
+    .single-main-container article figure.post-thumbnail img {
+        max-height: 300px;
+    }
+}
+
+.single-main-container .underbar-in-article {
+    background: linear-gradient(transparent 60%, #7FBFFF 40%);
+}
+
+.single-main-container .index-container {
+    border: 2px solid #7FBFFF;
+    width: 70%;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.single-main-container h2.article-sub-title {
+    margin-top: 40px;
+}
+
+.single-main-container .index-container h2 {
+    font-weight: 500;
+    color: #7FBFFF;
+}
+
+.single-main-container .index-container ul {
+    text-align: left;
+    display: inline-block;
+}
+
+.single-main-container .index-container ul li a {
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.single-main-container .index-container ul li {
+    margin-bottom: 10px;
+}
+
+.single-main-container .index-container ul li a:hover {
+    color: #7FBFFF;
+    transition: 0.3s;
+}
+
+.single-main-container .index-container ul li .index-number {
+    padding-right: 10px;
+    color: #7FBFFF;
+    font-size: 18px;
+}
+
+.single-main-container .article-sub-title {
+    font-weight: 500;
+    position: relative;
+    padding-left: 10px;
+}
+
+.single-main-container .article-sub-title:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #7FBFFF;
+    border-radius: 3px;
+}
+
+a.common-link-in-single-page-article {
+    color: #7FBFFF;
+    transition: 0.3s;
+}
+
+a.common-link-in-single-page-article:hover {
+    transition: 0.3s;
+    opacity: 0.6;
+}
+
+/*=============================================
+    comment
+===================================================*/
+.comment-reply-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: #FF7F7F;
+    border-bottom: 1px solid #FF7F7F;
+}
+
+.comment-form textarea[name="comment"] {
+    width: 100%;
+}
+
+.comment-form input[type="submit"] {
+    background-color: transparent;
+    border: 1px solid black;
+    transition: 0.3s;
+}
+
+.comment-form input[type="submit"]:hover {
+    background-color: #FF7F7F;
+    border: 1px solid #FF7F7F;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.comment-form .comment-form-cookies-consent {
+    display: none;
+}
+
+/*============================================
+お問い合わせページ
+=================================================*/
+.page-id-17 form label span {
+    color: #7F7FFF;
+    border: 1px solid #7F7FFF;
+    font-size: 14px;
+    margin-left: 5px;
+    padding: 2px;
+}
+
+.page-id-17 form input[type="submit"] {
+    background-color: transparent;
+    border: 1px solid black;
+    transition: 0.3s;
+}
+
+.page-id-17 form input[type="submit"]:hover {
+    background-color: #7F7FFF;
+    border: 1px solid #7F7FFF;
+    color: white;
+    transition: 0.3s;
+}
+
+.page-id-17 form input[type="submit"].back-btn {
+    margin-top: 5px;
+}
+
+/*======================================
+    profile
+===============================================*/
+.profile-page-container {
+    display: table;
+
+}
+
+.profile-page-text-container {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 10px;
+}
+
+.profile-page-container img {
+    border-radius: 10px;
+}
+
+@media (max-width: 770px ) {
+    .profile-page-container {
+        display: block;
+    }
+    
+    .profile-page-text-container {
+        display: block;
+    }
+}
+
+/*================================================
+404
+====================================================*/
+.link-404 {
+    color: rgb(0, 255, 64);
+}
+
+/*==================================================
+page.php
+==========================================================*/
+.page-template-default main h2 {
+    color: #7F7FFF;
+    font-weight: 500;
+}
+
+.page-template-default.page-id-70 main a {
+    color: #7F7FFF;
+    transition: 0.3s;
+}
+
+.page-template-default.page-id-70 main a:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+/*============================================
+        footer
+===============================================*/
+.main-footer {
+    margin: 20px auto 0;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #1b2735;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.main-footer nav ul {
+    display: flex;
+    justify-content: center;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.main-footer a {
+    color: white;
+    display: block;
+    margin-right: 20px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.main-footer a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid white;
+    height: 1px;
+    width: 0;
+    transition: 0.3s;
+}
+
+.main-footer a:hover::after {
+    width: 100%;
+    transition: 0.3s;
+}
+
+.smooth-scroll-btn {
+    background-color: rgba(27,39,53,0.5);
+    color: white;
+    padding: 7px 5px 5px 10px;
+    border-radius: 50%;
+    margin-left: 15px;
+    transition: 0.5s;
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+
+.smooth-scroll-btn:hover {
+    transform: translateY(-5px);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.smooth-scroll-btn i {
+    font-size: 25px;
+}
+
+/*=======================================
+    responsive design
+=============================================*/
+@media (max-width: 1000px) {
+    .main-container {
+        display: block;
+    }
+    
+    .main-contents-in-single-page, /*for single.php*/
+    .posts-container-with-title, /*for archive.php*/
+    .index-main-container .posts-container /*for index.php*/ {
+        width: 100%;
+    }
+
+   .archive-main-container .posts-container {
+       margin: 0 10px;
+   }
+    
+    .sidemenu-container {
+        width: 100%;
+        margin: 20px auto 0 auto;
+    }
+
+    .sidemenu-container .sidemenu-for-tablet-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .sidemenu-container .sidemenu-for-tablet-container .sidemenu-part {
+        width: 46%;
+    }
+
+    .sidemenu-container .sidemenu-for-tablet-container .sidemenu-part:nth-child(odd) {
+        margin-right: 2%;
+    }
+    .sidemenu-container .sidemenu-for-tablet-container .sidemenu-part:nth-child(even) {
+        margin-left: 2%;
+    }
+
+    main {
+        margin: 0;
+    }
+
+    main .sidemenu-container {
+        padding: 0px 10px;
+    }
+
+    body.home main {
+        margin: 0 10px;
+    }
+
+    body.home main .sidemenu-container {
+        padding: 0;
+    }
+
+    body.page main {
+        margin: 0 7px;
+    }
+
+}
+
+
+@media (max-width: 770px ) {
+
+    .sidemenu-container .sidemenu-for-tablet-container {
+        display: block;
+    }
+    
+    .sidemenu-container .sidemenu-for-tablet-container .sidemenu-part {
+        width: 100%;
+    }
+
+    .sidemenu-container .sidemenu-for-tablet-container .sidemenu-part:nth-child(odd) {
+        margin-right: 0;
+    }
+    .sidemenu-container .sidemenu-for-tablet-container .sidemenu-part:nth-child(even) {
+        margin-left: 0;
+    }
+
+    .posts-container {
+        display: block;
+    }
+    
+    .sidemenu-container {
+        margin: 20px 0 20px 0;
+    }
+
+    header .blog-top-title-container {
+        display: none;
+    }
+
+    header {
+        box-shadow: 0px 2px 2px 0px rgba(0,0,0,.3);
+        height: 50px;
+        background-color: white;
+    }
+
+    header .menu-menu1-container {
+        transform: translate(-40px, -44px);
+    }
+
+    .responsive-search-btn .search-btn {
+        transform: translateY(14px);
+    }
+
+    .responsive-search-btn form {
+        left: 17px !important;
+        bottom: -4px !important;
+    }
+    
+    .posts-container article {
+        width: 100%;
+    }
+
+    .posts-container article .excerpt-title {
+        margin: 20px;
+    }
+
+    .all-contents-without-header .blog-top-title-container.under-770px {
+        display: block;
+    }
+
+
+
+}
+
+@media (max-width: 540px ) {
+
+    header {
+        display: block;
+        position: relative;
+    }
+
+    header .main-nav {
+        display: none;
+    }
+
+    header .main-nav-under-540px {
+        display: none;
+        position: absolute;
+        bottom: -120px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0,0,0,.8);
+        z-index: 10000;
+    }
+
+    header .main-nav-under-540px li {
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    header .main-nav-under-540px li a {
+        color: white;
+        transition: 0.3s;
+    }
+
+    header .main-nav-under-540px li a:hover {
+        color: #7F7FFF;
+        transition: 0.3s;
+    }
+
+    header .fa-bars {
+        display: block;
+        position: absolute;
+        top: 17px;
+        right: 10px;
+        font-size: 20px;
+    }
+
+    .responsive-search-btn button[type="submit"] {
+        transform: translate(-25px, 0px);
+    }
+
+    
+    .responsive-search-btn form {
+        left: 17px !important;
+        bottom: -14px !important;
+    }   
+    
+    
+
+    /*======================================
+    contact
+    ==========================================*/
+    body.page-id-17 input, body.page-id-17 textarea {
+        width: 100%;
+    }
+
+    body.page-id-17 input[type="submit"] {
+        padding: 5px 0;
+    }
+    
+}
+
